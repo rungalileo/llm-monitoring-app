@@ -4,17 +4,10 @@ from langchain.chains import LLMChain
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 
-from os import environ
 from llm_monitor import MonitorHandler
 
 
 class MonitoringApp:
-
-    def __init__(self):
-        environ["GALILEO_CONSOLE_URL"] = "https://console.dev.rungalileo.io"
-        environ["GALILEO_USERNAME"] = "galileo@rungalileo.io"
-        environ["GALILEO_PASSWORD"] = "A11a1una!"
-        environ["OPENAI_API_KEY"] = "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"
 
     def run_llm(self, llm, user_prompt):
         if user_prompt is None:
