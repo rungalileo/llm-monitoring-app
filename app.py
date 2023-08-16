@@ -23,7 +23,7 @@ class MonitoringApp:
             chain = LLMChain(llm=llm, prompt=prompt)
             result = chain.run(user_prompt=user_prompt)
             st.write(f"{result}\n")
-            st.write(f"Galileo Link: {self.galileo_console_url}", unsafe_allow_html=True)
+            st.write(f"<a href='{self.galileo_console_url}'>Galileo Link</a>", unsafe_allow_html=True)
 
 
 def run_streamlit_app(app, llm):
