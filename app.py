@@ -25,7 +25,7 @@ def main():
     app = MonitoringApp()
     llm = ChatOpenAI(
         temperature=0,
-        callbacks=[MonitorHandler(project_name=f"galileo_streamlit_application")],
+        callbacks=[MonitorHandler(project_name=f"fortune500_summaries")],
     )
     # app.run_llm(llm, "Why is the sky blue?", metrics=False)
     run_streamlit_app(app, llm)
