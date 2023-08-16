@@ -17,9 +17,7 @@ class MonitoringApp:
         if user_prompt is None:
             st.write("Please provide a question.")
         else:
-            prompt = PromptTemplate.from_template(
-                "Answer the following question: {user_prompt}"
-            )
+            prompt = PromptTemplate.from_template("{user_prompt}")
             chain = LLMChain(llm=llm, prompt=prompt)
             result = chain.run(user_prompt=user_prompt)
             st.write(f"{result}\n")
@@ -27,10 +25,13 @@ class MonitoringApp:
 
 
 def run_streamlit_app(app, llm):
-    st.markdown("""## Ask me anything""")
+    st.markdown("""## Earnings Call Summarizer""")
+    st.markdown(
+        """ Welcome! Acne has built this summarizer for you. 
+            Please paste the earnings call and we'll summarize this for you.""")
     st.markdown("""---""")
-    user_question = st.text_input("Ask a Question")
-    if st.button("Ask"):
+    user_question = st.text_input("")
+    if st.button("Summarize"):
         app.run_llm(llm, user_question)
     st.markdown("""---""")
 
