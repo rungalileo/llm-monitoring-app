@@ -23,6 +23,7 @@ class MonitoringApp:
             chain = LLMChain(llm=llm, prompt=prompt)
             result = chain.run(user_prompt=user_prompt)
             st.write(f"{result}\n")
+            st.write(f"Galileo Link: {self.galileo_console_url}", unsafe_allow_html=True)
 
 
 def run_streamlit_app(app, llm):
@@ -31,7 +32,6 @@ def run_streamlit_app(app, llm):
     user_question = st.text_input("Ask a Question")
     if st.button("Ask"):
         app.run_llm(llm, user_question)
-    st.write(f"Galileo Link: {app.galileo_console_url}", unsafe_allow_html=True)
     st.markdown("""---""")
 
 
