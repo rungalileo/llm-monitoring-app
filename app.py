@@ -15,9 +15,9 @@ class MonitoringApp:
 
     def run_llm(self, llm, user_prompt):
         if user_prompt is None:
-            st.write("Please provide a question.")
+            st.write("Please provide an earnings call transcript.")
         else:
-            prompt = PromptTemplate.from_template("{user_prompt}")
+            prompt = PromptTemplate.from_template("Summarize the following: {user_prompt}")
             chain = LLMChain(llm=llm, prompt=prompt)
             result = chain.run(user_prompt=user_prompt)
             st.write(f"{result}\n")
