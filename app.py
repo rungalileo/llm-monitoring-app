@@ -27,10 +27,10 @@ class MonitoringApp:
 def run_streamlit_app(app, llm):
     st.markdown("""## Earnings Call Summarizer""")
     st.markdown(
-        """ Welcome! Acme has built this summarizer for you. 
+        """Welcome! Acme has built this summarizer for you. 
             Please paste the earnings call and we'll summarize this for you.""")
     st.markdown("""---""")
-    user_question = st.text_input("")
+    user_question = st.text_input("Enter an earnings call transcript")
     if st.button("Summarize"):
         app.run_llm(llm, user_question)
     st.markdown("""---""")
